@@ -9,14 +9,12 @@
       update_cache: yes
     when: ansible_distribution == "Ubuntu"
 
-  - name: install chronyd
+  - name: install chronyd and vim
     apt: 
-      name: chrony
-    when: ansible_distribution == "Ubuntu"
-
-  - name: install vim
-    apt:
-      name: vim-nox
+      name:
+        - chrony
+        - vim-nox
+      state: latest
     when: ansible_distribution == "Ubuntu"
 
   - name: update repos
@@ -24,12 +22,10 @@
       update_cache: yes
     when: ansible_distribution == "CentOS"
 
-  - name: install chronyd
+  - name: install chronyd and vim
     dnf:
-      name: chrony
-    when: ansible_distribution == "CentOS"
-
-  - name: install vim
-    dnf:
-      name: vim-nox
+      name:
+        - chrony
+        - vim-nox
+      state: latest
     when: ansible_distribution == "CentOS"
