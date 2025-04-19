@@ -8,6 +8,11 @@
     apt:
       update_cache: yes
 
-  - name: install base packages
+  - name: install chronyd
     apt: 
       name: chrony
+
+  - name: install vim
+    apt:
+      name: vim-nox
+
