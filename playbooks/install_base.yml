@@ -4,23 +4,14 @@
   become: true
   tasks:
 
-  - name: update repos
-    apt:
-      update_cache: yes
-    when: ansible_distribution == "Ubuntu"
-
   - name: install chronyd and vim
     apt: 
       name:
         - chrony
         - vim-nox
       state: latest
-    when: ansible_distribution == "Ubuntu"
-
-  - name: update repos
-    dnf:
       update_cache: yes
-    when: ansible_distribution == "CentOS"
+    when: ansible_distribution == "Ubuntu"
 
   - name: install chronyd and vim
     dnf:
@@ -28,4 +19,5 @@
         - chrony
         - vim-nox
       state: latest
+      update_cache: yes
     when: ansible_distribution == "CentOS"
